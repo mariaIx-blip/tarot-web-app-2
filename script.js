@@ -1,10 +1,17 @@
-// Step 1: Fetch the tarot cards from JSON file
+// Step 1: Fetch the tarot cards from JSON file and preload images
 let tarotDeck = [];
 
 fetch("container.json")
   .then((response) => response.json())
   .then((data) => {
-    tarotDeck = data.deck; // ✅ Use the array inside "deck"
+    tarotDeck = data.deck;
+
+    // 🔮 Preload all images so they’re cached
+    tarotDeck.forEach(card => {
+      const img = new Image();
+      img.src = card.image;
+    });
+
     console.log("Deck loaded:", tarotDeck.length, "cards");
   })
   .catch((error) => console.error("Error loading deck:", error));
@@ -33,7 +40,6 @@ function drawCard() {
   setTimeout(() => {
     clearInterval(dotInterval);
 
-    // ✅ Only try to draw if deck is loaded
     if (!tarotDeck || tarotDeck.length === 0) {
       cardDiv.innerHTML = `<p style="color: red;">Deck not loaded yet. Please try again.</p>`;
       button.disabled = false;
@@ -43,41 +49,29 @@ function drawCard() {
     const randomIndex = Math.floor(Math.random() * tarotDeck.length);
     const card = tarotDeck[randomIndex];
 
-    cardDiv.innerHTML = `
-      <div class="card-content">
-        <div class="card-name">
-          <h2>${card.name}</h2>
-        </div>
-        <img src="${card.image}" alt="${card.name}" class="card-image">
-        <div class="card-meaning">
-          <p>${card.meaning}</p>
-        </div>
-      </div>
-    `;
+    // Create an Image object and wait until it's fully loaded
+    const img = new Image();
+    img.src = card.image;
 
-    // Show promo text only on first draw
-    const promoText = document.getElementById("promo-text");
-    const isHidden = window.getComputedStyle(promoText).display === "none";
-    if (promoText && isHidden) {
-      promoText.style.display = "block";
-    }
-
-    const content = cardDiv.querySelector(".card-content");
-    const img = content.querySelector("img");
-
-    // Fade-in effect
-    setTimeout(() => content.classList.add("show"), 50);
-
-    // Scroll after image loads so all content is visible
     img.onload = () => {
-      cardDiv.scrollIntoView({ behavior: "smooth", block: "end" });
-    };
+      // ✅ Only render card after image is ready
+      cardDiv.innerHTML = `
+        <div class="card-content">
+          <div class="card-name">
+            <h2>${card.name}</h2>
+          </div>
+          <img src="${card.image}" alt="${card.name}" class="card-image">
+          <div class="card-meaning">
+            <p>${card.meaning}</p>
+          </div>
+        </div>
+      `;
 
-    // Re-enable button and update text
-    button.innerText = "Draw again";
-    button.disabled = false;
-  }, 4000);
-}
+      // Show promo text only on first draw
+      const promoText = document.getElementById("promo-text");
+      const isHidden = promoText && window.getComputedStyle(promoText).display === "none";
+      if (promoText && isHidden) {
+        promoText.style.display = "block";
+      }
 
-// Event listener for button
-document.getElementById("drawButton").addEventListener("click", drawCard);
+      const content = cardDiv.querySelec

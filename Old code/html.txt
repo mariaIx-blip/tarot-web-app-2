@@ -1,5 +1,3 @@
-HTML code tarot web app
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,16 +22,9 @@ HTML code tarot web app
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -49,12 +40,11 @@ HTML code tarot web app
     <div id="cardDisplay"></div>
 
     <p id="promo-text">
-      Enjoyed that? Take charge of your life and discover tarot as your guide at
+      Enjoyed that? Take charge of your life and become a tarotreader at
       <a href="https://www.apathwaytoinnerwisdom.com" target="_blank">
         www.apathwaytoinnerwisdom.com
       </a>
     </p>
-
     <script src="script.js"></script>
   </body>
 </html>

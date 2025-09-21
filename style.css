@@ -197,7 +197,8 @@ button.draw-btn:hover {
 
 /* Image styling */
 .card-image {
-  width: 200px; /* adjust size as you like */
+  width: 200px;
+  height: auto;
   margin: 15px 0;
   border-radius: 12px;
   box-shadow: 0 0 12px #fff, 0 0 25px rgba(255, 255, 0, 0.6);
