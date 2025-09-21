@@ -1,0 +1,83 @@
+// Step 1: Fetch the tarot cards from JSON file
+let tarotDeck = [];
+
+fetch("container.json")
+  .then((response) => response.json())
+  .then((data) => {
+    tarotDeck = data.deck; // ✅ Use the array inside "deck"
+    console.log("Deck loaded:", tarotDeck.length, "cards");
+  })
+  .catch((error) => console.error("Error loading deck:", error));
+
+// Step 2-6: drawCard function with thinking time
+function drawCard() {
+  const cardDiv = document.getElementById("cardDisplay");
+  const button = document.getElementById("drawButton");
+
+  button.disabled = true;
+
+  // Show "Thinking..." with animated dots
+  cardDiv.innerHTML = `
+    <span style="font-size:1.2em; font-family:monospace;">
+      <span class="thinking-word">Thinking</span><span id="dots" class="dots"></span>
+    </span>
+  `;
+  const dotsSpan = document.getElementById("dots");
+  let dotCount = 0;
+  const dotInterval = setInterval(() => {
+    dotCount = (dotCount + 1) % 4;
+    dotsSpan.textContent = ".".repeat(dotCount);
+  }, 500);
+
+  // After 4 seconds, reveal the card
+  setTimeout(() => {
+    clearInterval(dotInterval);
+
+    // ✅ Only try to draw if deck is loaded
+    if (!tarotDeck || tarotDeck.length === 0) {
+      cardDiv.innerHTML = `<p style="color: red;">Deck not loaded yet. Please try again.</p>`;
+      button.disabled = false;
+      return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * tarotDeck.length);
+    const card = tarotDeck[randomIndex];
+
+    cardDiv.innerHTML = `
+      <div class="card-content">
+        <div class="card-name">
+          <h2>${card.name}</h2>
+        </div>
+        <img src="${card.image}" alt="${card.name}" class="card-image">
+        <div class="card-meaning">
+          <p>${card.meaning}</p>
+        </div>
+      </div>
+    `;
+
+    // Show promo text only on first draw
+    const promoText = document.getElementById("promo-text");
+    const isHidden = window.getComputedStyle(promoText).display === "none";
+    if (promoText && isHidden) {
+      promoText.style.display = "block";
+    }
+
+    const content = cardDiv.querySelector(".card-content");
+    const img = content.querySelector("img");
+
+    // Fade-in effect
+    setTimeout(() => content.classList.add("show"), 50);
+
+    // Scroll after image loads so all content is visible
+    img.onload = () => {
+      cardDiv.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+
+    // Re-enable button and update text
+    button.innerText = "Draw again";
+    button.disabled = false;
+  }, 4000);
+}
+
+// Event listener for button
+document.getElementById("drawButton").addEventListener("click", drawCard);

@@ -1,0 +1,114 @@
+{
+  "deck": [
+    {
+      "name": "The Fool",
+      "meaning": "Oh yes, new things can be scary. You probably don't have all the answers, and that might feel even scarier. But life is asking you to trust the journey. Take a leap of faith! Step forward, even if you can't see the whole path yet. Each stumble, each surprise, teaches you something. You might even end up happy.",
+      "image": "images/tarot-cards/major-arcana/0-The-Fool.jpg"
+    },
+    {
+      "name": "The Magician",
+      "meaning": "Don't be so afraid to step into your power. Yes, you do have what it takes. That dream? Totally achievable. That goal? Already within reach. You have the resources, the skills, the talents... Trust your power and take action. Wisdom will come as you move forward, and the world has a way of meeting you halfway when you show up fully.",
+      "image": "images/tarot-cards/major-arcana/01-The-Magician.jpg"
+    },
+    {
+      "name": "The High Priestess",
+      "meaning": "Be honest, you already know the answer. That quiet little voice in your gut? That's your intuition. Think of it like a friend who always has your back. Pause, breathe, and trust it. You might be surprised how clearly the path ahead shows up when you listen.",
+      "image": "images/tarot-cards/major-arcana/02-The-High-Priestess.jpg"
+    },
+    {
+      "name": "The Empress",
+      "meaning": "The secret is actually pretty simple. Give it care, love and time. Trust the process, and yes, I know that trusting the process can feel scary and annoying, but it will blossom with inspiration and creativity. Sometimes it's not about the end, but about enjoying the way.",
+      "image": "images/tarot-cards/major-arcana/03-The-Empress.jpg"
+    },
+    {
+      "name": "The Emperor",
+      "meaning": "It looks like there's no other way than discipline. Stop telling yourself you don't have what it takes, because you most certainly do. This calls for stability, leadership and focus, and sometimes it might feel impossible. Make a plan, trust your decisions, and take charge. Strength and wisdom will come from your own power.",
+      "image": "images/tarot-cards/major-arcana/04-The-Emperor.jpg"
+    },
+    {
+      "name": "The Hierophant",
+      "meaning": "So, you feel like you can't find either the head or tail of the situation? That's because truth is not always obvious, it comes through experiences and learning. Step back, try a higher perspective (think as... a soul) and you will notice patterns and answers. Maybe in ways you don.t expect, but in the end, it'll all make sense.",
+      "image": "images/tarot-cards/major-arcana/05-The-Hierophant.jpg"
+    },
+    {
+      "name": "The Lovers",
+      "meaning": "Well, hate to break it to you, but if you really want it, you have to say yes. Commit! With everything you have. Do not just: Let me see what happens, or: If it happens, it happens. Align yourself with what you truly want, and you'll get it. Commitment takes courage, but the opposite is losing. So, do you want it or not?",
+      "image": "images/tarot-cards/major-arcana/06-The-Lovers.jpg"
+    },
+    {
+      "name": "The Chariot",
+      "meaning": "I'm gonna say something annoying now, but... do not let fear of failure stop you. Moving forward is already a success. You can't loose as long as you have determination for momentum, you should try it! Even if the path feels unclear or heavy at times, keep going. The right path is the one you create for yourself.",
+      "image": "images/tarot-cards/major-arcana/07-The-Chariot.jpg"
+    },
+    {
+      "name": "Strength",
+      "meaning": "You think you are weak? Really? Think again! Strength is not about fighting harder. You don’t have to roar like a lion. True strength shows in the resilient smile, the quiet flicker of courage that refuses to quit and the light you keep shining, even when others cast shadows. Yes, you are far more powerful than you realize.",
+      "image": "images/tarot-cards/major-arcana/08-Strength.jpg"
+    },
+    {
+      "name": "The Hermit",
+      "meaning": "All those voices and opinions, they are pretty loud, huh? But you do not need them. Take some time alone and reflect on what really matters. You might be surprised how good your own company is! Wisdom grows in the quiet, not in everyone else’s advice. Try it, give yourself a day alone, you might find it insightful.",
+      "image": "images/tarot-cards/major-arcana/09-The-Hermit.jpg"
+    },
+    {
+      "name": "Wheel of Fortune",
+      "meaning": "Guess what? Life is more like a circle than a straight line. The good, the bad, the: Oh no not this again! It all comes around in cycles. But here is the trick: Nothing is wasted. It will all show its place, why it was an important experience. What I am saying? Well, just.. trust life.",
+      "image": "images/tarot-cards/major-arcana/10-Wheel-of-Fortune.jpg"
+    },
+    {
+      "name": "Justice",
+      "meaning": "What goes around comes around, right? Karma is not bad, it's just your own efforts coming back to meet you. Actions yes, but also intentions. Maybe you already have a clear vision of what you want, great! But stay open. Be your most authentic self, and you will either get exactly what you seek, or something even better.",
+      "image": "images/tarot-cards/major-arcana/11-Justice.jpg"
+    },
+    {
+      "name": "The Hanged Man",
+      "meaning": "Stagnation and pausing, what could be good about that? Well, think of it this way: Is it easier to stand on your head while standing or running? You can't see things from a new perspective if you rush. What's so wrong with sitting and watching the wind in the trees? You might get insights… or at least a calmer nervous system.",
+      "image": "images/tarot-cards/major-arcana/12-The-Hanged-Man.jpg"
+    },
+    {
+      "name": "Death",
+      "meaning": "Ooooh, lucky you, it's transformation time! This is your call to shed old patterns, habits, beliefs or what else that weighs you down. What exactly? That's your job to figure out! On the other side waits a fresher, lighter, more aligned version of you. Yes, it takes reflection and dedication, but the rebirth will be worth it.",
+      "image": "images/tarot-cards/major-arcana/13-Death.jpg"
+    },
+    {
+      "name": "Temperance",
+      "meaning": "Well, patience is the key. Is it difficult? Yes. Is it worth it? Absolutely. Whether it’s your attention, actions or anything in between, you can really benefit from finding balance. Patience is your friend! It helps you stay steady, find your balance and flow with life. I know you know it's true: Patience and balance will carry you far.",
+      "image": "images/tarot-cards/major-arcana/14-Temperance.jpg"
+    },
+    {
+      "name": "The Devil",
+      "meaning": "Well, denying it doesn't make it less true. But here's the thing: The chains aren’t locked. They’re just heavy because you’ve been carrying them for too long. Temptations, fears, habits, they only have as much power as you give them. Take a step away from what drains you, and feel the weight beginning to lift. You will breathe so much easier.",
+      "image": "images/tarot-cards/major-arcana/15-The-Devil.jpg"
+    },
+    {
+      "name": "The Tower",
+      "meaning": "Whoa, did not see that one coming, huh? Sometimes it feels like everything will fall apart. But here's the truth: It only breaks down what wasn't built strong enough to last. Scary? Sure. Necessary? Absolutely. Let it crumble, because what remains is real. Start again, and you will see this “disaster” was your greatest blessing in disguise.",
+      "image": "images/tarot-cards/major-arcana/16-The-Tower.jpg"
+    },
+    {
+      "name": "The Star",
+      "meaning": "Take a deep breath. Can you feel it? That clarity, that sense that everything is going to be okay? No? Then you are in luck, because here I am. The path may seem long, but you are already guided, supported. Let go of doubt, and pour your energy into what inspires you. Follow that sparkle inside. It's pointing you exactly where you need to go.",
+      "image": "images/tarot-cards/major-arcana/17-The-Star.jpg"
+    },
+    {
+      "name": "The Moon",
+      "meaning": "Oh, you would like a straight answer, am I right? Sorry, that is not how I work in your life. I deal in hints, dreams and gut feelings. Logic will not help much here, but imagination will. The unknown is not your enemy, it is your playground. If you dare to trust your subconscious instead of the facts, the path will be revealed in the most surprising way.",
+      "image": "images/tarot-cards/major-arcana/18-The-Moon.jpg"
+    },
+    {
+      "name": "The Sun",
+      "meaning": "You want to know the secret? It's simpler than you think: Say yes to joy. That's it. Let yourself feel proud, let yourself laugh, let yourself be big and bright and maybe even a little silly. You have every reason to celebrate, so don't dim it down just because it feels too good. Trust me, shining feels better than hiding. Try it out.",
+      "image": "images/tarot-cards/major-arcana/19-The-Sun.jpg"
+    },
+    {
+      "name": "Judgement",
+      "meaning": "Oh, you thought you could just ignore that little voice inside? Nice try. I'm here to wake you up. The past has done its job, now it's time to rise into something bigger. Don't waste time replaying old mistakes. Learn from them, thank them, and then move on. Say yes to the version of you that has been knocking on the door. Trust me, it's worth opening.",
+      "image": "images/tarot-cards/major-arcana/20-Judgement.jpg"
+    },
+    {
+      "name": "The World",
+      "meaning": "You wanted proof you are on the right path? You got it. This is fulfillment, integration, success, the: Wow, I did that! But I will not let you stop here. Completion is not about standing still, it is about realizing you are strong enough to start fresh from an even higher place. You’ve earned this, and the world is waiting for your next step.",
+      "image": "images/tarot-cards/major-arcana/21-The-World.jpg"
+    }
+  ]
+}

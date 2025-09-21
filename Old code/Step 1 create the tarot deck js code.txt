@@ -1,0 +1,198 @@
+ // Step 1: create the tarot deck
+const tarotDeck = [
+  {
+    name: "The Fool",
+    meaning:
+      "Oh yes, new things can be scary. You probably do not have all the answers, and that might feel even scarier. But life is asking you to trust the journey. Take a leap of faith! Step forward, even if you cannot see the whole path yet. Each stumble, each surprise, teaches you something. You might even end up happy.",
+    image: "images/tarot-cards/major-arcana/0-The-Fool.jpg",
+  },
+  {
+    name: "The Magician",
+    meaning:
+      "Do not be so afraid to step into your power. Yes, you really do have what it takes. That dream? Totally achievable. That goal? Already within reach. You have the resources, the skills, the talents... no, stop those doubting thoughts, you really do! Trust your power and take action. Wisdom will come as you move forward, and the world has a way of meeting you halfway when you show up fully.",
+    image: "images/tarot-cards/major-arcana/01-The-Magician.jpg",
+  },
+  {
+    name: "The High Priestess",
+    meaning:
+      "Be honest, you already know the answer. That quiet little voice in your gut? That is your intuition. Think of it like a friend who always has your back. Pause, breathe, and trust it. You might be surprised how clearly the path ahead shows up when you listen.",
+    image: "images/tarot-cards/major-arcana/-02-The-High-Priestess.jpg",
+  },
+  {
+    name: "The Empress",
+    meaning:
+      "The secret is actually pretty simple. Give it care, love and time. Trust the process, and yes, I know that trusting the process can feel scary and annoying, but it will blossom with inspiration and creativity. Sometimes it is not about the end, but about enjoying the way.",
+    image: "images/tarot-cards/major-arcana/03-The-Empress.jpg",
+  },
+  {
+    name: "The Emperor",
+    meaning:
+      "It looks like there is no other way than discipline. Do not tell yourself you do not have what it takes, because you most certainly do. This calls for stability, leadership and focus, and sometimes it might feel impossible. Make a plan, trust your decisions, and take charge. Strength and wisdom will come from your own power.",
+    image: "images/tarot-cards/major-arcana/04-The-Emperor.jpg",
+  },
+  {
+    name: "The Hierophant",
+    meaning:
+      "So, you feel like you cannot find either the head or tail of the situation? That is because truth is not always obvious, it often comes through learning and experiences. Step back, see it from a higher perspective (try to think as a soul) and you will start to notice the patterns and answers. Maybe in ways you do not expect, but in the end, it will all make sense.",
+    image: "images/tarot-cards/major-arcana/05-The-Hierophant.jpg",
+  },
+  {
+    name: "The Lovers",
+    meaning:
+      "Well, hate to break it to you, but if you really want it, you have to say yes. Commit! With your head, heart and soul. Do not just let it be: Let me see what happens or: If it happens, it happens. Align yourself with what you truly want, and you will get it. Commitment takes courage, but the opposite is losing. So, do you want it or not?",
+    image: "images/tarot-cards/major-arcana/06-The-Lovers.jpg",
+  },
+  {
+    name: "The Chariot",
+    meaning:
+      "I am gonna say something annoying now, but... do not let fear of failure stop you. Moving forward is already success. You cannot lose as long as you have determination for momentum, I know it sounds insane, but you should try it! Even if the path feels unclear or heavy at times, keep going. The right path is the one you create for yourself.",
+    image: "images/tarot-cards/major-arcana/07-The-Chariot.jpg",
+  },
+  {
+    name: "Strength",
+    meaning:
+      "You think you are weak? Really? Think again! Strength is not about fighting harder. Raw power? No thanks. You don’t have to roar like a lion. True strength shows in the resilient smile, the quiet flicker of courage that refuses to quit and the light you keep shining, even when others cast shadows. Yes, you are far more powerful than you realize.",
+    image: "images/tarot-cards/major-arcana/08-Strength.jpg",
+  },
+  {
+    name: "The Hermit",
+    meaning:
+      "All those voices and opinions, they are pretty loud, huh? But you do not need them. Take some time alone and reflect on what really matters. You might be surprised how good your own company is! Wisdom grows in the quiet, not in everyone else’s advice. Try it, give yourself a day alone, you might find out it will be the best one yet.",
+    image: "images/tarot-cards/major-arcana/09-The-Hermit.jpg",
+  },
+  {
+    name: "Wheel of Fortune",
+    meaning:
+      "Guess what? Life is more like a circle than a straight line. The good, the bad, the: Oh not this again! It all comes around in cycles. But here is the trick: Nothing is wasted. It will all show its place, why it was an important experience. What I am saying? Well, just.. trust life.",
+    image: "images/tarot-cards/major-arcana/10-Wheel-of-Fortune.jpg",
+  },
+  {
+    name: "Justice",
+    meaning:
+      "What goes around comes around, right? Karma is not bad, it is just your own efforts coming back to meet you. Actions yes, but also intentions. Justice will be served. Maybe you already have a clear vision of what you want, and that is great! But stay open. Be your most authentic self, and you will either get exactly what you seek, or something even better.",
+    image: "images/tarot-cards/major-arcana/11-Justice.jpg",
+  },
+  {
+    name: "The Hanged Man",
+    meaning:
+      "Stagnation and pausing, what could be good about that? Well, think of it this way: Is it easier to stand on your head while standing still or while running? You cannot see things from a new perspective if you rush past this blessing of a pause. What is so wrong with sitting and watching the wind in the trees? You might get insights… or at least a calmer nervous system.",
+    image: "images/tarot-cards/major-arcana/12-The-Hanged-Man.jpg",
+  },
+  {
+    name: "Death",
+    meaning:
+      "Ooooh, lucky you, it is transformation time! This is your call to shed old patterns, habits, beliefs or what else that weighs you down. What exactly? That is your job to figure out! On the other side waits a fresher, lighter, more aligned version of you. Yes, it takes reflection and dedication, but the rebirth will be worth it.",
+    image: "images/tarot-cards/major-arcana/13-Death.jpg",
+  },
+  {
+    name: "Temperance",
+    meaning:
+      "Well, balance is the key. Is it difficult? Yes. Is it worth it? Absolutely. Whether it’s your attention, actions, emotions, thoughts, or anything else in your life, it can really benefit from a little patience. Patience is your friend! It helps you stay steady, find your balance and flow with life. I know you know its true: Patience and balance will carry you far.",
+    image: "images/tarot-cards/major-arcana/14-Temperance.jpg",
+  },
+  {
+    name: "The Devil",
+    meaning:
+      "Well, denying it does not make it less true. But here is the thing: The chains aren’t locked. They’re just heavy because you’ve been carrying them for too long. Temptations, fears, habits, they only have as much power as you give them. Take one small step away from what drains you, and suddenly the weight starts to lift. Freedom is not as far away as you think. Go on, loosen that grip. You will breathe so much easier.",
+    image: "images/tarot-cards/major-arcana/15-The-Devil.jpg",
+  },
+  {
+    name: "The Tower",
+    meaning:
+      "Whoa, did not see that one coming, huh? Sometimes life shakes things up. Sometimes it feels like everything will fall apart. But here is the truth: It only breaks down what was not built strong enough to last. Scary? Sure. Necessary? Absolutely. Let it crumble, because what remains is real. Start again on solid ground, and you will see this “disaster” was actually your greatest blessing in disguise.",
+    image: "images/tarot-cards/major-arcana/16-The-Tower.jpg",
+  },
+  {
+    name: "The Star",
+    meaning:
+      "Take a deep breath. Can you feel it? That calm, that clarity, that sense that everything is going to be okay? No? Then you are in luck, because here I enter. The path may seem long, but you are already guided, already supported. Let go of doubt, and pour your energy into what restores and inspires you. Follow that sparkle inside. It is pointing you exactly where you need to go.",
+    image: "images/tarot-cards/major-arcana/17-The-Star.jpg",
+  },
+  {
+    name: "The Moon",
+    meaning:
+      "Oh, you would like a straight answer, am I right? Sorry, that is not how I work in your life. I deal in hints, dreams and gut feelings. Logic will not help much here, but imagination will. The unknown is not your enemy, it is your playground. If you dare to trust your subconscious instead of the facts, the path will reveal itself in the most surprising way.",
+    image: "images/tarot-cards/major-arcana/18-The-Moon.jpg",
+  },
+  {
+    name: "The Sun",
+    meaning:
+      "You want to know the secret? It is simpler than you think: Say yes to joy. That is it. Let yourself feel proud, let yourself laugh, let yourself be big and bright and maybe even a little silly. You have got every reason to celebrate, so do not dim it down just because it feels too good. Trust me, shining feels better than hiding. Try it out.",
+    image: "images/tarot-cards/major-arcana/19-The-Sun.jpg",
+  },
+  {
+    name: "Judgement",
+    meaning:
+      "Oh, you thought you could just ignore that little voice inside? Nice try. I am here to wake you up. The past has done its job, now it is time to rise into something bigger. Do not waste time replaying old mistakes. Learn from them, thank them, and then move on. This is your call to step up. Say yes to the version of you that has been knocking on the door. Trust me, it is worth opening.",
+    image: "images/tarot-cards/major-arcana/20-Judgement.jpg",
+  },
+  {
+    name: "The World",
+    meaning:
+      "You wanted closure? Here it is. You wanted proof you are on the right path? You got it. This is fulfillment, integration, success, the: Wow, I did that! But I will not let you stop here. Completion is not about standing still, it is about realizing you are strong enough to start fresh from an even higher place. Smile, dance a little, celebrate yourself. You’ve earned this, and the world is waiting for your next step.",
+    image: "images/tarot-cards/major-arcana/21-The-World.jpg",
+  },
+];
+// Step 2-6: drawCard function with thinking time
+function drawCard() {
+  const cardDiv = document.getElementById("cardDisplay");
+  const button = document.getElementById("drawButton");
+
+  button.disabled = true;
+
+  // Show "Thinking..." with animated dots
+  cardDiv.innerHTML = `
+    <span style="font-size:1.2em; font-family:monospace;">
+      <span class="thinking-word">Thinking</span><span id="dots" class="dots"></span>
+    </span>
+  `;
+  const dotsSpan = document.getElementById("dots");
+  let dotCount = 0;
+  const dotInterval = setInterval(() => {
+    dotCount = (dotCount + 1) % 4;
+    dotsSpan.textContent = ".".repeat(dotCount);
+  }, 500);
+
+  // After 6 seconds, reveal the card
+  setTimeout(() => {
+    clearInterval(dotInterval);
+
+    const randomIndex = Math.floor(Math.random() * tarotDeck.length);
+    const card = tarotDeck[randomIndex];
+
+    cardDiv.innerHTML = `
+      <div class="card-content">
+      <div class="card-name">
+        <h2>${card.name}</h2></div>
+        <img src="${card.image}" alt="${card.name}" class="card-image">
+        <div class="card-meaning">
+        <p>${card.meaning}</p></div>
+      </div>
+    `;
+
+    const promoText = document.getElementById("promo-text");
+    const isHidden = window.getComputedStyle(promoText).display === "none";
+
+    if (promoText && isHidden) {
+      promoText.style.display = "block";
+    }
+
+    const content = cardDiv.querySelector(".card-content");
+    const img = content.querySelector("img");
+
+    // Fade-in effect
+    setTimeout(() => content.classList.add("show"), 50);
+
+    // Scroll after image loads so all content is visible
+    img.onload = () => {
+      cardDiv.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+
+    // Re-enable button and update text
+    button.innerText = "Draw again";
+    button.disabled = false;
+  }, 4000);
+}
+
+// Event listener for button
+document.getElementById("drawButton").addEventListener("click", drawCard);

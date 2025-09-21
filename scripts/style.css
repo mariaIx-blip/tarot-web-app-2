@@ -1,0 +1,115 @@
+/* ------------------------
+   BODY & BACKGROUND
+------------------------ */
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  color: yellow;
+  text-shadow: 0 0 8px #fff;
+  background: linear-gradient(-45deg, #0b0c4a, #4b0082, #191970, #000080);
+  background-size: 400% 400%;
+  animation: gradient 20s ease infinite;
+}
+
+#universe-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  display: block;
+}
+
+/* Gradient animation */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ------------------------
+   TITLE & SUBTITLE
+------------------------ */
+h1.title {
+  font-family: "Playfair Display", serif;
+  font-size: 3em;
+  color: yellow;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+h2.subtitle {
+  font-family: "Lato", sans-serif;
+  font-size: 1.5em;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Paragraph styling for card meanings */
+.result-box p {
+  font-family: "Lato", sans-serif;
+  color: white;
+  font-size: 1em;
+  line-height: 1.4em;
+}
+
+/* ------------------------
+   RESULT BOX
+------------------------ */
+.result-box {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid yellow;
+  max-width: 350px;
+  margin-top: 20px;
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.result-box:hover {
+  transform: scale(1.02);
+}
+
+/* ------------------------
+   BUTTON
+------------------------ */
+button.draw-btn {
+  margin-bottom: 40px;
+  padding: 12px 25px;
+  border-radius: 12px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: yellow;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.draw-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* ------------------------
+   Card Display Positioning
+------------------------ */
+#cardDisplay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 250px;
+  max-width: 350px;
+  /* Optional: add padding, background, border, etc. */
+}
