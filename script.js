@@ -26,7 +26,7 @@ function drawCard() {
   // Show "Thinking..." with animated dots
   cardDiv.innerHTML = `
     <span style="font-size:1.2em; font-family:monospace;">
-      <span class="thinking-word">Thinking</span><span id="dots" class="dots"></span>
+      <span class="thinking-word">Shuffling</span><span id="dots" class="dots"></span>
     </span>
   `;
   const dotsSpan = document.getElementById("dots");

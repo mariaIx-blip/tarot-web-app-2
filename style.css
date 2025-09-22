@@ -37,7 +37,7 @@ body {
 ------------------------ */
 h1.title {
   font-family: "Playfair Display", serif;
-  font-size: clamp(4rem, 8vw, 8rem);
+  font-size: clamp(4rem, 5vw, 8rem);
   color: #ffff00;
   text-shadow: 0 0 8px #fff;
   margin-top: 2rem;
@@ -46,10 +46,10 @@ h1.title {
 
 h2.subtitle {
   font-family: "Tangerine", cursive;
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(3rem, 5vw, 6rem);
   color: white;
-  margin-top: 0.5em;
-  margin-bottom: 1em;
+  margin-top: clamp(0.2rem, 1vh, 2rem);
+  margin-bottom: clamp(0.3rem, 4vh, 5rem);
 }
 
 p.app {
@@ -93,14 +93,15 @@ p.app {
 }
 
 button.draw-btn {
-  margin-bottom: 20px;
-  padding: 12px 25px;
+  margin-top: clamp(0.3rem, 1vh, 5rem);
+  margin-bottom: clamp(0.5rem, 3vh, 5rem);
+  padding: clamp(1rem, 2vh, 2rem) clamp(1rem, 3vw, 2rem);
   border-radius: 12px;
   border: none;
   background-color: #eee04fe7;
   color: white;
   font-family: "lato", sans-serif;
-  font-size: 16px;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 0 7px #f2f1db, 0 0 50px rgb(198, 188, 93);
@@ -116,7 +117,7 @@ button.draw-btn:hover {
 
 .thinking-word {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: clamp(0.8rem, 1vh, 8rem);
   margin-left: 0px;
   margin-right: 0;
 }
