@@ -1,13 +1,13 @@
 // Step 1: Fetch the tarot cards from JSON file and preload images
 let tarotDeck = [];
 
-fetch("container.json")
+fetch("./container.json")
   .then((response) => response.json())
   .then((data) => {
     tarotDeck = data.deck;
 
     // 🔮 Preload all images so they’re cached
-    tarotDeck.forEach(card => {
+    tarotDeck.forEach((card) => {
       const img = new Image();
       img.src = card.image;
     });
@@ -49,12 +49,11 @@ function drawCard() {
     const randomIndex = Math.floor(Math.random() * tarotDeck.length);
     const card = tarotDeck[randomIndex];
 
-    // Create an Image object and wait until it's fully loaded
+    // Wait until the image is loaded before showing everything
     const img = new Image();
     img.src = card.image;
 
     img.onload = () => {
-      // ✅ Only render card after image is ready
       cardDiv.innerHTML = `
         <div class="card-content">
           <div class="card-name">
@@ -69,9 +68,34 @@ function drawCard() {
 
       // Show promo text only on first draw
       const promoText = document.getElementById("promo-text");
-      const isHidden = promoText && window.getComputedStyle(promoText).display === "none";
-      if (promoText && isHidden) {
+      if (promoText && window.getComputedStyle(promoText).display === "none") {
         promoText.style.display = "block";
       }
 
-      const content = cardDiv.querySelec
+      const content = cardDiv.querySelector(".card-content");
+
+      // Fade-in effect
+      setTimeout(() => content.classList.add("show"), 50);
+
+      // Scroll into view
+      cardDiv.scrollIntoView({ behavior: "smooth", block: "end" });
+
+      // Re-enable button and update text
+      button.innerText = "Draw again";
+      button.disabled = false;
+    };
+
+    img.onerror = () => {
+      cardDiv.innerHTML = `<p style="color:red;">Failed to load image for ${card.name}</p>`;
+      button.disabled = false;
+    };
+  }, 4000);
+}
+
+// Attach event listener once DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  const drawButton = document.getElementById("drawButton");
+  if (drawButton) {
+    drawButton.addEventListener("click", drawCard);
+  }
+});
