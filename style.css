@@ -37,10 +37,10 @@ body {
 ------------------------ */
 h1.title {
   font-family: "Playfair Display", serif;
-  font-size: clamp(4rem, 5vw, 8rem);
+  font-size: clamp(4rem, 5vw, 10rem);
   color: #ffff00;
   text-shadow: 0 0 8px #fff;
-  margin-top: 2rem;
+  margin-top: 4rem;
   margin-bottom: 0px;
 }
 
@@ -48,8 +48,8 @@ h2.subtitle {
   font-family: "Tangerine", cursive;
   font-size: clamp(3rem, 5vw, 6rem);
   color: white;
-  margin-top: clamp(0.2rem, 1vh, 2rem);
-  margin-bottom: clamp(0.3rem, 4vh, 5rem);
+  margin-top: clamp(0.8rem, 1vh, 4rem);
+  margin-bottom: clamp(0.8rem, 4vh, 8rem);
 }
 
 p.app {
