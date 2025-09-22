@@ -37,7 +37,7 @@ body {
 ------------------------ */
 h1.title {
   font-family: "Playfair Display", serif;
-  font-size: clamp(4rem, 8vw, 13rem);
+  font-size: clamp(4rem, 8vw, 10rem);
   color: #ffff00;
   text-shadow: 0 0 8px #fff;
   margin-top: 2rem;
@@ -46,7 +46,7 @@ h1.title {
 
 h2.subtitle {
   font-family: "Tangerine", cursive;
-  font-size: clamp(3rem, 7vw, 10rem);
+  font-size: clamp(3rem, 7vw, 8rem);
   color: white;
   margin-top: 0.5em;
   margin-bottom: 1em;
@@ -54,7 +54,7 @@ h2.subtitle {
 
 p.app {
   font-family: "raleway", sans-serif;
-  font-size: clamp(0.2rem, 2vw, 0.6rem);
+  font-size: clamp(0.3rem, 2vw, 0.6rem);
   color: white;
   margin-top: 0.2em;
   margin-bottom: 0.5em;
@@ -63,7 +63,7 @@ p.app {
 
 #promo-text {
   font-family: "Raleway", sans-serif;
-  font-size: clamp(0.6rem, 2vw, 0.8rem);
+  font-size: clamp(0.8rem, 2vw, 0.8rem);
   color: white;
   margin: 20px auto;
   max-width: 400px;
@@ -210,7 +210,7 @@ button.draw-btn:hover {
   text-align: center;
   color: #ffff00;
   font-family: "lato", sans-serif;
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 1.4em;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }

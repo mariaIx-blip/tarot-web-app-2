@@ -78,7 +78,7 @@ function drawCard() {
       setTimeout(() => content.classList.add("show"), 50);
 
       // Scroll into view
-      cardDiv.scrollIntoView({ behavior: "smooth", block: "end" });
+      cardDiv.scrollIntoView({ behavior: "smooth", block: "start" });
 
       // Re-enable button and update text
       button.innerText = "Draw again";
