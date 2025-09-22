@@ -99,3 +99,20 @@ document.addEventListener("DOMContentLoaded", () => {
     drawButton.addEventListener("click", drawCard);
   }
 });
+
+
+   // 🔽 Add Test All Cards button
+  const testButton = document.createElement("button");
+  testButton.innerText = "Test All Cards";
+  testButton.style.cssText = `
+    margin: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: #444;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  `;
+  testButton.onclick = showAllCards;
+  document.body.appendChild(testButton);
+});
