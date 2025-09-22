@@ -37,33 +37,33 @@ body {
 ------------------------ */
 h1.title {
   font-family: "Playfair Display", serif;
-  font-size: 4em;
+  font-size: clamp(4rem, 8vw, 13rem);
   color: #ffff00;
   text-shadow: 0 0 8px #fff;
-  margin-top: 0px;
+  margin-top: 2rem;
   margin-bottom: 0px;
 }
 
 h2.subtitle {
   font-family: "Tangerine", cursive;
-  font-size: 3.5em;
+  font-size: clamp(3rem, 7vw, 10rem);
   color: white;
-  margin-top: 20px;
-  margin-bottom: 60px;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 }
 
 p.app {
   font-family: "raleway", sans-serif;
-  font-size: 0.6em;
+  font-size: clamp(0.2rem, 2vw, 0.6rem);
   color: white;
-  margin-top: 0px;
-  margin-bottom: 10px;
+  margin-top: 0.2em;
+  margin-bottom: 0.5em;
   font-style: italic;
 }
 
 #promo-text {
   font-family: "Raleway", sans-serif;
-  font-size: 0.8em;
+  font-size: clamp(0.6rem, 2vw, 0.8rem);
   color: white;
   margin: 20px auto;
   max-width: 400px;
@@ -221,58 +221,4 @@ button.draw-btn:hover {
   font-size: 1.8em;
   color: #ffff00;
   text-shadow: 0 0 4px hsl(0, 0%, 0%);
-}
-
-/* ------------------------
-   RESPONSIVE ADJUSTMENTS
------------------------- */
-@media (max-width: 768px) {
-  h1.title {
-    font-size: 2.5em;
-  }
-
-  h2.subtitle {
-    font-size: 2.2em;
-  }
-
-  .card-image {
-    width: 160px;
-  }
-
-  button.draw-btn {
-    font-size: 14px;
-    padding: 10px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  h1.title {
-    font-size: 1.8em;
-  }
-
-  h2.subtitle {
-    font-size: 1.6em;
-  }
-
-  p.app {
-    font-size: 0.7em;
-  }
-
-  #promo-text {
-    font-size: 0.7em;
-    padding: 0 10px;
-  }
-
-  .card-image {
-    width: 140px;
-  }
-
-  .card-meaning p {
-    font-size: 0.9em;
-  }
-
-  button.draw-btn {
-    font-size: 13px;
-    padding: 8px 18px;
-  }
 }
