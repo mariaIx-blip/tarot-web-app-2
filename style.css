@@ -222,3 +222,57 @@ button.draw-btn:hover {
   color: #ffff00;
   text-shadow: 0 0 4px hsl(0, 0%, 0%);
 }
+
+/* ------------------------
+   RESPONSIVE ADJUSTMENTS
+------------------------ */
+@media (max-width: 768px) {
+  h1.title {
+    font-size: 2.5em;
+  }
+
+  h2.subtitle {
+    font-size: 2.2em;
+  }
+
+  .card-image {
+    width: 160px;
+  }
+
+  button.draw-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1.title {
+    font-size: 1.8em;
+  }
+
+  h2.subtitle {
+    font-size: 1.6em;
+  }
+
+  p.app {
+    font-size: 0.7em;
+  }
+
+  #promo-text {
+    font-size: 0.7em;
+    padding: 0 10px;
+  }
+
+  .card-image {
+    width: 140px;
+  }
+
+  .card-meaning p {
+    font-size: 0.9em;
+  }
+
+  button.draw-btn {
+    font-size: 13px;
+    padding: 8px 18px;
+  }
+}
