@@ -163,8 +163,8 @@ button.draw-btn:hover {
 
 #read-button {
   border: none;
-  border-radius: 5px;
-  padding: auto;
+  border-radius: clamp(0.3rem, 1vh, 1rem);
+  padding: 0.4rem 0.8rem;
   background-color: transparent;
   color: #ffffff;
   font-family: "lato", sans-serif;

@@ -159,7 +159,10 @@ function drawCard() {
 // Attach event listener once DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
   const drawButton = document.getElementById("drawButton");
+
   if (drawButton) {
+    // Use both click and touchstart for mobile
     drawButton.addEventListener("click", drawCard);
+    drawButton.addEventListener("touchstart", drawCard);
   }
 });
