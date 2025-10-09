@@ -16,6 +16,57 @@ fetch("./container.json")
   })
   .catch((error) => console.error("Error loading deck:", error));
 
+// Load voices for SpeechSynthesis
+let voices = [];
+function loadVoices() {
+  voices = speechSynthesis.getVoices();
+  if (voices.length === 0) {
+    speechSynthesis.onvoiceschanged = () => {
+      voices = speechSynthesis.getVoices();
+    };
+  }
+}
+loadVoices();
+
+// Pick a smooth female English voice
+function getFemaleVoice() {
+  return voices.find(
+    (v) =>
+      v.lang === "en-US" &&
+      (v.name.toLowerCase().includes("zira") ||
+        v.name.toLowerCase().includes("samantha") ||
+        v.name.toLowerCase().includes("victoria") ||
+        v.name.toLowerCase().includes("female"))
+  );
+}
+
+// Speak message with toggle
+function speakMessage(message, button) {
+  if (!message) return;
+
+  // Stop current speech
+  if (speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    button.innerText = "🔉";
+    return;
+  }
+
+  const utterance = new SpeechSynthesisUtterance(message);
+  utterance.lang = "en-US";
+  utterance.pitch = 1;
+  utterance.rate = 1;
+
+  const voice = getFemaleVoice();
+  if (voice) utterance.voice = voice;
+
+  utterance.onend = () => {
+    button.innerText = "🔉";
+  };
+
+  button.innerText = "⏸";
+  speechSynthesis.speak(utterance);
+}
+
 // Step 2-6: drawCard function with thinking time
 function drawCard() {
   const cardDiv = document.getElementById("cardDisplay");
@@ -49,7 +100,6 @@ function drawCard() {
     const randomIndex = Math.floor(Math.random() * tarotDeck.length);
     const card = tarotDeck[randomIndex];
 
-    // Wait until the image is loaded before showing everything
     const img = new Image();
     img.src = card.image;
 
@@ -61,10 +111,32 @@ function drawCard() {
           </div>
           <img src="${card.image}" alt="${card.name}" class="card-image">
           <div class="card-meaning">
-            <p>${card.meaning}</p>
+            <p id="card-meaning-text">${card.meaning}</p>
           </div>
         </div>
       `;
+
+      // Add Read Out Loud button dynamically
+      const cardMeaningDiv = cardDiv.querySelector(".card-meaning");
+      if (cardMeaningDiv) {
+        const readButton = document.createElement("button");
+        readButton.id = "read-button";
+        readButton.innerText = "🔉";
+        cardMeaningDiv.appendChild(readButton);
+
+        readButton.addEventListener("click", () => {
+          const message =
+            document.getElementById("card-meaning-text")?.textContent;
+          speakMessage(message, readButton);
+        });
+      }
+
+      // Fade-in effect
+      const content = cardDiv.querySelector(".card-content");
+      setTimeout(() => content.classList.add("show"), 50);
+
+      // Scroll into view
+      cardDiv.scrollIntoView({ behavior: "smooth", block: "start" });
 
       // Show promo text only on first draw
       const promoText = document.getElementById("promo-text");
@@ -72,15 +144,7 @@ function drawCard() {
         promoText.style.display = "block";
       }
 
-      const content = cardDiv.querySelector(".card-content");
-
-      // Fade-in effect
-      setTimeout(() => content.classList.add("show"), 50);
-
-      // Scroll into view
-      cardDiv.scrollIntoView({ behavior: "smooth", block: "start" });
-
-      // Re-enable button and update text
+      // Re-enable button
       button.innerText = "Draw again";
       button.disabled = false;
     };
