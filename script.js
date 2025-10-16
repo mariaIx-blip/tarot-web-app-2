@@ -1,12 +1,14 @@
-// Step 1: Fetch the tarot cards from JSON file and preload images
+// Step 1: Fetch tarot cards and preload images
 let tarotDeck = [];
+let deckLoaded = false;
 
 fetch("./container.json")
   .then((response) => response.json())
   .then((data) => {
     tarotDeck = data.deck;
+    deckLoaded = true;
 
-    // 🔮 Preload all images so they’re cached
+    // Preload all images
     tarotDeck.forEach((card) => {
       const img = new Image();
       img.src = card.image;
@@ -16,7 +18,7 @@ fetch("./container.json")
   })
   .catch((error) => console.error("Error loading deck:", error));
 
-// Load voices for SpeechSynthesis
+// === Speech synthesis setup ===
 let voices = [];
 function loadVoices() {
   voices = speechSynthesis.getVoices();
@@ -28,11 +30,10 @@ function loadVoices() {
 }
 loadVoices();
 
-// Pick a smooth female English voice
 function getFemaleVoice() {
   return voices.find(
     (v) =>
-      v.lang === "en-US" &&
+      v.lang.startsWith("en") &&
       (v.name.toLowerCase().includes("zira") ||
         v.name.toLowerCase().includes("samantha") ||
         v.name.toLowerCase().includes("victoria") ||
@@ -40,11 +41,9 @@ function getFemaleVoice() {
   );
 }
 
-// Speak message with toggle
 function speakMessage(message, button) {
   if (!message) return;
 
-  // Stop current speech
   if (speechSynthesis.speaking) {
     speechSynthesis.cancel();
     button.innerText = "🔉";
@@ -67,14 +66,21 @@ function speakMessage(message, button) {
   speechSynthesis.speak(utterance);
 }
 
-// Step 2-6: drawCard function with thinking time
-function drawCard() {
+// === Card draw logic ===
+function drawCard(event) {
+  event.preventDefault(); // Prevent double triggering
   const cardDiv = document.getElementById("cardDisplay");
   const button = document.getElementById("drawButton");
 
+  // Block if deck not ready yet
+  if (!deckLoaded) {
+    cardDiv.innerHTML = `<p style="color:red;">Deck not loaded yet. Please wait a moment.</p>`;
+    return;
+  }
+
   button.disabled = true;
 
-  // Show "Thinking..." with animated dots
+  // Shuffling animation
   cardDiv.innerHTML = `
     <span style="font-size:1.2em; font-family:monospace;">
       <span class="thinking-word">Shuffling</span><span id="dots" class="dots"></span>
@@ -87,15 +93,9 @@ function drawCard() {
     dotsSpan.textContent = ".".repeat(dotCount);
   }, 500);
 
-  // After 4 seconds, reveal the card
+  // Reveal card after delay
   setTimeout(() => {
     clearInterval(dotInterval);
-
-    if (!tarotDeck || tarotDeck.length === 0) {
-      cardDiv.innerHTML = `<p style="color: red;">Deck not loaded yet. Please try again.</p>`;
-      button.disabled = false;
-      return;
-    }
 
     const randomIndex = Math.floor(Math.random() * tarotDeck.length);
     const card = tarotDeck[randomIndex];
@@ -106,9 +106,7 @@ function drawCard() {
     img.onload = () => {
       cardDiv.innerHTML = `
         <div class="card-content">
-          <div class="card-name">
-            <h2>${card.name}</h2>
-          </div>
+          <div class="card-name"><h2>${card.name}</h2></div>
           <img src="${card.image}" alt="${card.name}" class="card-image">
           <div class="card-meaning">
             <p id="card-meaning-text">${card.meaning}</p>
@@ -116,7 +114,7 @@ function drawCard() {
         </div>
       `;
 
-      // Add Read Out Loud button dynamically
+      // Add read button
       const cardMeaningDiv = cardDiv.querySelector(".card-meaning");
       if (cardMeaningDiv) {
         const readButton = document.createElement("button");
@@ -131,20 +129,16 @@ function drawCard() {
         });
       }
 
-      // Fade-in effect
+      // Fade-in and scroll
       const content = cardDiv.querySelector(".card-content");
       setTimeout(() => content.classList.add("show"), 50);
-
-      // Scroll into view
       cardDiv.scrollIntoView({ behavior: "smooth", block: "start" });
 
-      // Show promo text only on first draw
       const promoText = document.getElementById("promo-text");
-      if (promoText && window.getComputedStyle(promoText).display === "none") {
+      if (promoText && promoText.style.display === "none") {
         promoText.style.display = "block";
       }
 
-      // Re-enable button
       button.innerText = "Draw again";
       button.disabled = false;
     };
@@ -156,13 +150,14 @@ function drawCard() {
   }, 4000);
 }
 
-// Attach event listener once DOM is fully loaded
+// === Attach event listener ===
 document.addEventListener("DOMContentLoaded", () => {
   const drawButton = document.getElementById("drawButton");
-
   if (drawButton) {
-    // Use both click and touchstart for mobile
-    drawButton.addEventListener("click", drawCard);
-    drawButton.addEventListener("touchstart", drawCard);
+    // Use only one handler for both tap and click
+    const handler = (event) => drawCard(event);
+
+    drawButton.addEventListener("click", handler, { passive: true });
+    drawButton.addEventListener("touchend", handler, { passive: true });
   }
 });
